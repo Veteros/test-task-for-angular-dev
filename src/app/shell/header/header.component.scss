@@ -1,7 +1,7 @@
-@use "bootstrap/scss/bootstrap" as bs;
+@import "theme/theme-variables";
 
 .navbar {
-  margin-bottom: bs.$spacer;
+  margin-bottom: $spacer;
 }
 
 .nav-link.dropdown-toggle {

@@ -4,18 +4,14 @@
  */
 
 // Theme variables, must be included before the libraries to allow overriding defaults
-@use "theme/theme-variables" as *;
-
-@use "bootstrap/scss/bootstrap" with (
-  $theme-colors: $theme-colors
-);
+@import "theme/theme-variables";
 
 // 3rd party libraries
-//@use "bootstrap/scss/bootstrap";
-@use "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@use "@fortawesome/fontawesome-free/scss/brands.scss";
-@use "@fortawesome/fontawesome-free/scss/regular.scss";
-@use "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "bootstrap/scss/bootstrap";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
 
 // Theme customization
-@use "theme/theme";
+@import "theme/theme";

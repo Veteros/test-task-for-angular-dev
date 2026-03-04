@@ -38,7 +38,10 @@
             "namedChunks": true,
             "browser": "src/main.ts",
             "stylePreprocessorOptions": {
-              "includePaths": ["src"]
+              "includePaths": ["src"],
+              "sass": {
+                "silenceDeprecations": ["import"]
+              }
             }
           },
           "configurations": {
@@ -60,7 +63,7 @@
                   "maximumError": "10kb"
                 }
               ],
-              "serviceWorker": true,
+              "serviceWorker": false,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

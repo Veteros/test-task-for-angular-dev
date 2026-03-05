@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: UntypedFormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
   ) {
     this.createForm();
   }
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.loginForm.markAsPristine();
           this.isLoading = false;
         }),
-        untilDestroyed(this)
+        untilDestroyed(this),
       )
       .subscribe(
         (credentials) => {
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         (error) => {
           log.debug(`Login error: ${error}`);
           this.error = error;
-        }
+        },
       );
   }
 

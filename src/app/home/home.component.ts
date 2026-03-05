@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.isLoading = false;
-        })
+        }),
       )
       .subscribe((quote: string) => {
         this.quote = quote;

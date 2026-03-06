@@ -1,7 +1,12 @@
 <div class="container-fluid">
   <div class="jumbotron text-center">
     <h1>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
+      <span class="logo-wrapper">
+        <img class="logo"
+             ngSrc="assets/ngx-rocket-logo.png"
+             fill="cover"
+             alt="angular logo" />
+      </span>
       <span translate>Hello world !</span>
     </h1>
     <app-loader [isLoading]="true"></app-loader>

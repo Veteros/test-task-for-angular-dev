@@ -2,6 +2,11 @@
 
 .navbar {
   margin-bottom: $spacer;
+  padding: 0.5rem 1rem;
+}
+
+#navbar-menu {
+  justify-content: space-between;
 }
 
 .nav-link.dropdown-toggle {

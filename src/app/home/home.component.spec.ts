@@ -1,10 +1,10 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CoreModule } from '@core';
-import { SharedModule } from '@shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
+import { provideHttpClient } from '@angular/common/http'
+import { provideHttpClientTesting } from '@angular/common/http/testing'
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -12,9 +12,9 @@ describe('HomeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [CoreModule, SharedModule, HttpClientTestingModule],
+      imports: [CoreModule],
       declarations: [HomeComponent],
-      providers: [QuoteService],
+      providers: [QuoteService, provideHttpClient, provideHttpClientTesting],
     }).compileComponents();
   }));
 

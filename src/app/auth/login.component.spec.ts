@@ -8,7 +8,6 @@ import { CoreModule } from '@core';
 // import { AuthenticationService, CredentialsService } from '@app/auth';
 // import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 // import { MockCredentialsService } from '@app/auth/credentials.service.mock';
-import { I18nModule } from '@app/i18n';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -17,7 +16,7 @@ describe('LoginComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NgbModule, TranslateModule.forRoot(), I18nModule, ReactiveFormsModule, CoreModule],
+      imports: [NgbModule, TranslateModule.forRoot(), ReactiveFormsModule, CoreModule],
       declarations: [LoginComponent],
     }).compileComponents();
   }));

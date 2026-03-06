@@ -1,9 +1,11 @@
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
 
 import { CoreModule } from '@core';
 import { QuoteService } from './quote.service';
+import { provideHttpClient } from '@angular/common/http'
+import { provideHttpClientTesting } from '@angular/common/http/testing'
 
 describe('QuoteService', () => {
   let quoteService: QuoteService;
@@ -11,8 +13,8 @@ describe('QuoteService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CoreModule, HttpClientTestingModule],
-      providers: [QuoteService],
+      imports: [CoreModule],
+      providers: [QuoteService, provideHttpClient, provideHttpClientTesting],
     });
 
     quoteService = TestBed.inject(QuoteService);

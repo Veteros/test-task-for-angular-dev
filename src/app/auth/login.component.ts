@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 import { Logger, UntilDestroy, untilDestroyed } from '@core';
 import { AuthenticationService } from './authentication.service';
+import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+import { LanguageSelectorComponent } from '@app/i18n';
 
 const log = new Logger('Login');
 
 @UntilDestroy()
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  standalone: false,
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    imports: [
+        TranslateDirective,
+        LanguageSelectorComponent,
+        ReactiveFormsModule,
+        TranslatePipe,
+    ],
 })
 export class LoginComponent implements OnInit {
   version: string | null = environment.version;
@@ -44,16 +51,16 @@ export class LoginComponent implements OnInit {
         }),
         untilDestroyed(this),
       )
-      .subscribe(
-        (credentials) => {
+      .subscribe({
+        next: (credentials) => {
           log.debug(`${credentials.username} successfully logged in`);
           this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
         },
-        (error) => {
+        error: (error) => {
           log.debug(`Login error: ${error}`);
           this.error = error;
-        },
-      );
+        }
+      });
   }
 
   private createForm() {

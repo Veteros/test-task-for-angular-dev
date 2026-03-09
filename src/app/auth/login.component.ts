@@ -4,10 +4,11 @@ import { UntypedFormGroup, UntypedFormBuilder, Validators, ReactiveFormsModule }
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, UntilDestroy, untilDestroyed } from '@core';
+import { Logger } from '@core/logger.service';
+import { UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 import { AuthenticationService } from './authentication.service';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
-import { LanguageSelectorComponent } from '@app/i18n';
+import { LanguageSelectorComponent } from '@app/i18n/language-selector.component';
 
 const log = new Logger('Login');
 

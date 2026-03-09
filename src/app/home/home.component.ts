@@ -4,7 +4,7 @@ import { finalize } from 'rxjs/operators';
 import { QuoteService } from './quote.service';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslateDirective } from '@ngx-translate/core';
-import { LoaderComponent } from '@shared';
+import { LoaderComponent } from '@shared/loader/loader.component';
 
 @Component({
     selector: 'app-home',

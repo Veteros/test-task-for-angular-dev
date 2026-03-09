@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
-import { AuthenticationService, CredentialsService } from '@app/auth';
+import { AuthenticationService } from '@app/auth/authentication.service';
+import { CredentialsService } from '@app/auth/credentials.service';
 import { TranslateDirective } from '@ngx-translate/core';
 import { NgbCollapse, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu } from '@ng-bootstrap/ng-bootstrap';
-import { LanguageSelectorComponent } from '@app/i18n';
+import { LanguageSelectorComponent } from '@app/i18n/language-selector.component';
 
 @Component({
     selector: 'app-header',

@@ -3,7 +3,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { provideRouter } from '@angular/router';
 
-import { AuthenticationService, CredentialsService } from '@app/auth';
+import { AuthenticationService } from '@app/auth/authentication.service';
+import { CredentialsService } from '@app/auth/credentials.service';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 import { MockCredentialsService } from '@app/auth/credentials.service.mock';
 import { HeaderComponent } from './header.component';

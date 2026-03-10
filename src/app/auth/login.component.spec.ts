@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { CoreModule } from '@core';
 // import { AuthenticationService, CredentialsService } from '@app/auth';
 // import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 // import { MockCredentialsService } from '@app/auth/credentials.service.mock';
@@ -16,7 +15,7 @@ describe('LoginComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NgbModule, TranslateModule.forRoot(), ReactiveFormsModule, CoreModule],
+      imports: [NgbModule, TranslateModule.forRoot(), ReactiveFormsModule],
       declarations: [LoginComponent],
     }).compileComponents();
   }));

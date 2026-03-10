@@ -1,37 +1,24 @@
-import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
-import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-
-import { ErrorHandlerInterceptor } from '@core';
+import { errorHandlerInterceptor } from '@core/http/error-handler.interceptor';
+import { Logger } from '@core/logger.service';
 
 describe('ErrorHandlerInterceptor', () => {
-  let errorHandlerInterceptor: ErrorHandlerInterceptor;
-  let http: HttpClient;
   let httpMock: HttpTestingController;
-
-  function createInterceptor() {
-    errorHandlerInterceptor = new ErrorHandlerInterceptor();
-    return errorHandlerInterceptor;
-  }
+  let httpClient: HttpClient;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        {
-          provide: HTTP_INTERCEPTORS,
-          useFactory: createInterceptor,
-          multi: true,
-        },
-        provideHttpClient(),
+        provideHttpClient(withInterceptors([errorHandlerInterceptor])),
         provideHttpClientTesting(),
       ],
     });
 
-    http = TestBed.inject(HttpClient);
-    httpMock = TestBed.inject(HttpTestingController as Type<HttpTestingController>);
+    httpClient = TestBed.inject(HttpClient);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
@@ -42,20 +29,17 @@ describe('ErrorHandlerInterceptor', () => {
     // Arrange
     // Note: here we spy on private method since target is customization here,
     // but you should replace it by actual behavior in your app
-    spyOn(ErrorHandlerInterceptor.prototype as any, 'errorHandler').and.callThrough();
+    const loggerSpy = spyOn(Logger.prototype, 'error');
 
     // Act
-    http.get('/toto').subscribe({
-      next: () => fail('should error'),
+    httpClient.get('/test-error').subscribe({
+      next: () => fail('should have failed with 404'),
       error: () => {
-        // Assert
-        expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
-      },
+        expect(loggerSpy).toHaveBeenCalled();
+      }
     });
 
-    httpMock.expectOne({}).flush(null, {
-      status: 404,
-      statusText: 'error',
-    });
+    const req = httpMock.expectOne('/test-error');
+    req.flush('Error', { status: 404, statusText: 'Not Found' });
   });
 });

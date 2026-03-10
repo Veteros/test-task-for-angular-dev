@@ -3,15 +3,16 @@ import { Logger, LogLevel, LogOutput } from './logger.service';
 const logMethods = ['log', 'info', 'warn', 'error'];
 
 describe('Logger', () => {
-  let savedConsole: any[];
+  let savedConsole: { [key: string]: any } = {};
   let savedLevel: LogLevel;
   let savedOutputs: LogOutput[];
 
   beforeAll(() => {
     savedConsole = [];
     logMethods.forEach((m) => {
-      savedConsole[m] = console[m];
-      console[m] = () => {};
+      const consoleObj = console as any;
+      savedConsole[m] = consoleObj[m];
+      consoleObj[m] = () => {};
     });
     savedLevel = Logger.level;
     savedOutputs = Logger.outputs;
@@ -23,7 +24,7 @@ describe('Logger', () => {
 
   afterAll(() => {
     logMethods.forEach((m) => {
-      console[m] = savedConsole[m];
+      (console as any)[m] = savedConsole[m];
     });
     Logger.level = savedLevel;
     Logger.outputs = savedOutputs;

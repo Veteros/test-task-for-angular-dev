@@ -5,7 +5,7 @@ import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 import { Logger } from '@core/logger.service';
-import { UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthenticationService } from './authentication.service';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { LanguageSelectorComponent } from '@app/i18n/language-selector.component';
@@ -14,15 +14,10 @@ const log = new Logger('Login');
 
 @UntilDestroy()
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
-    imports: [
-        TranslateDirective,
-        LanguageSelectorComponent,
-        ReactiveFormsModule,
-        TranslatePipe,
-    ],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
+  imports: [TranslateDirective, LanguageSelectorComponent, ReactiveFormsModule, TranslatePipe],
 })
 export class LoginComponent implements OnInit {
   version: string | null = environment.version;
@@ -60,7 +55,7 @@ export class LoginComponent implements OnInit {
         error: (error) => {
           log.debug(`Login error: ${error}`);
           this.error = error;
-        }
+        },
       });
   }
 

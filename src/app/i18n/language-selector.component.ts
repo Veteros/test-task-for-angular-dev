@@ -6,16 +6,10 @@ import { NgClass } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-language-selector',
-    templateUrl: './language-selector.component.html',
-    styleUrls: ['./language-selector.component.scss'],
-    imports: [
-        NgbDropdown,
-        NgClass,
-        NgbDropdownToggle,
-        NgbDropdownMenu,
-        TranslatePipe,
-    ],
+  selector: 'app-language-selector',
+  templateUrl: './language-selector.component.html',
+  styleUrls: ['./language-selector.component.scss'],
+  imports: [NgbDropdown, NgClass, NgbDropdownToggle, NgbDropdownMenu, TranslatePipe],
 })
 export class LanguageSelectorComponent implements OnInit {
   @Input() inNavbar = false;

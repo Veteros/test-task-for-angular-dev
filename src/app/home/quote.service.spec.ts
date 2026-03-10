@@ -4,8 +4,8 @@ import { HttpTestingController } from '@angular/common/http/testing';
 
 import { CoreModule } from '@core';
 import { QuoteService } from './quote.service';
-import { provideHttpClient } from '@angular/common/http'
-import { provideHttpClientTesting } from '@angular/common/http/testing'
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('QuoteService', () => {
   let quoteService: QuoteService;

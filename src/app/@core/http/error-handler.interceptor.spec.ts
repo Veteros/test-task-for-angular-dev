@@ -2,8 +2,8 @@ import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { provideHttpClient } from '@angular/common/http'
-import { provideHttpClientTesting } from '@angular/common/http/testing'
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { ErrorHandlerInterceptor } from '@core';
 
@@ -26,7 +26,7 @@ describe('ErrorHandlerInterceptor', () => {
           multi: true,
         },
         provideHttpClient(),
-        provideHttpClientTesting()
+        provideHttpClientTesting(),
       ],
     });
 
@@ -46,13 +46,12 @@ describe('ErrorHandlerInterceptor', () => {
 
     // Act
     http.get('/toto').subscribe({
-        next:  () => fail('should error'),
-        error: () => {
-          // Assert
-          expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
-        }
-      }
-    );
+      next: () => fail('should error'),
+      error: () => {
+        // Assert
+        expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
+      },
+    });
 
     httpMock.expectOne({}).flush(null, {
       status: 404,

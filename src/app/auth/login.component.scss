@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "theme/theme-variables";
+@import "../../theme/theme-variables";
 @import "bootstrap/scss/mixins/breakpoints";
 
 .login-container {
@@ -9,7 +9,8 @@
   left: 0;
   right: 0;
 
-  h1, h6 {
+  h1,
+  h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-weight: 500;

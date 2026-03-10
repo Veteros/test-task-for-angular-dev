@@ -34,8 +34,6 @@
 // })
 //   .catch((err) => console.error(err));
 
-
-
 /*
  * Entry point of the application.
  * Only platform bootstrapping code should be here.
@@ -65,26 +63,18 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(
-      routes,
-      withComponentInputBinding()
-    ),
-    provideHttpClient(
-      withInterceptors([
-        apiPrefixInterceptor,
-        errorHandlerInterceptor
-      ])
-    ),
+    provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(withInterceptors([apiPrefixInterceptor, errorHandlerInterceptor])),
     {
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy,
     },
     importProvidersFrom(
       ServiceWorkerModule.register('./ngsw-worker.js', {
-        enabled: environment.production
+        enabled: environment.production,
       }),
       TranslateModule.forRoot(),
-      NgbModule
-    )
-  ]
+      NgbModule,
+    ),
+  ],
 }).catch((err) => console.error(err));

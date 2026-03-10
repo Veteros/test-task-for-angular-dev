@@ -7,17 +7,17 @@ import { filter, map, switchMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 import { Logger } from '@core/logger.service';
-import { UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { I18nService } from '@app/i18n/i18n.service';
 
 const log = new Logger('App');
 
 @UntilDestroy()
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet],
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(

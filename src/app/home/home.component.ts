@@ -7,14 +7,10 @@ import { TranslateDirective } from '@ngx-translate/core';
 import { LoaderComponent } from '@shared/loader/loader.component';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
-    imports: [
-        NgOptimizedImage,
-        TranslateDirective,
-        LoaderComponent,
-    ],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  imports: [NgOptimizedImage, TranslateDirective, LoaderComponent],
 })
 export class HomeComponent implements OnInit {
   quote: string | undefined;

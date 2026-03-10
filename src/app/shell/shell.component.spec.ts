@@ -21,7 +21,7 @@ describe('ShellComponent', () => {
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService },
         { provide: CredentialsService, useClass: MockCredentialsService },
-        provideRouter
+        provideRouter,
       ],
       declarations: [HeaderComponent, ShellComponent],
     }).compileComponents();

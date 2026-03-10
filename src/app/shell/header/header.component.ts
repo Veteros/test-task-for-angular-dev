@@ -8,19 +8,19 @@ import { NgbCollapse, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu } from '@n
 import { LanguageSelectorComponent } from '@app/i18n/language-selector.component';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    imports: [
-        TranslateDirective,
-        NgbCollapse,
-        RouterLink,
-        RouterLinkActive,
-        LanguageSelectorComponent,
-        NgbDropdown,
-        NgbDropdownToggle,
-        NgbDropdownMenu,
-    ],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  imports: [
+    TranslateDirective,
+    NgbCollapse,
+    RouterLink,
+    RouterLinkActive,
+    LanguageSelectorComponent,
+    NgbDropdown,
+    NgbDropdownToggle,
+    NgbDropdownMenu,
+  ],
 })
 export class HeaderComponent implements OnInit {
   menuHidden = true;

@@ -20,7 +20,7 @@ describe('HeaderComponent', () => {
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService },
         { provide: CredentialsService, useClass: MockCredentialsService },
-        provideRouter
+        provideRouter,
       ],
     }).compileComponents();
   }));

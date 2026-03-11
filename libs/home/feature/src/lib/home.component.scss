@@ -1,0 +1,31 @@
+//@import "@theme/theme-variables";
+@import "../../../../shared/assets-styles/src/lib/theme/theme-variables";
+@import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.logo-wrapper {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+q {
+  font-style: italic;
+  font-size: 1.2rem;
+  quotes: "« " " »";
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .jumbotron {
+    padding: 4rem 2rem;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": ["es2018", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@env/*": ["src/environments/*"],
+      "@my-org/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@my-org/core": ["libs/core/src/index.ts"],
+      "@my-org/auth-feature": ["libs/auth/feature/src/index.ts"],
+      "@my-org/home-feature": ["libs/home/feature/src/index.ts"],
+      "@my-org/shell-feature": ["libs/shell/feature/src/index.ts"],
+      "@my-org/shared-util-i18n": ["libs/shared/util-i18n/src/index.ts"],
+      "@my-org/shared-styles": ["libs/shared/assets-styles/src/index.ts"]
+    }
+  }
+}

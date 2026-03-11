@@ -1,14 +1,14 @@
 {
-  "$schema": "node_modules/nx/schemas/project-schema.json",
-  "name": "ng-x-rocket",
+  "name": "my-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "sourceRoot": "apps/my-app/src",
+  "prefix": "app",
   "generators": {
     "@schematics/angular:component": {
       "style": "scss"
     }
   },
-  "sourceRoot": "src",
-  "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
@@ -16,30 +16,30 @@
         "outputPath": {
           "base": "dist"
         },
-        "index": "src/index.html",
+        "index": "apps/my-app/src/index.html",
         "polyfills": [
-          "src/polyfills.ts"
+          "apps/my-app/src/polyfills.ts"
         ],
-        "tsConfig": "tsconfig.app.json",
+        "tsConfig": "apps/my-app/tsconfig.app.json",
         "assets": [
-          "src/favicon.ico",
-          "src/apple-touch-icon.png",
-          "src/robots.txt",
-          "src/manifest.webmanifest",
-          "src/assets"
+          "apps/my-app/src/favicon.ico",
+          "apps/my-app/src/apple-touch-icon.png",
+          "apps/my-app/src/robots.txt",
+          "apps/my-app/src/manifest.webmanifest",
+          "apps/my-app/src/assets"
         ],
         "styles": [
-          "src/main.scss"
+          "apps/my-app/src/main.scss"
         ],
         "scripts": [],
         "extractLicenses": false,
         "sourceMap": true,
         "optimization": false,
         "namedChunks": true,
-        "browser": "src/main.ts",
+        "browser": "apps/my-app/src/main.ts",
         "stylePreprocessorOptions": {
           "includePaths": [
-            "src"
+            "."
           ],
           "sass": {
             "silenceDeprecations": [
@@ -70,8 +70,8 @@
           "serviceWorker": false,
           "fileReplacements": [
             {
-              "replace": "src/environments/environment.ts",
-              "with": "src/environments/environment.prod.ts"
+              "replace": "apps/my-app/src/environments/environment.ts",
+              "with": "apps/my-app/src/environments/environment.prod.ts"
             }
           ]
         },
@@ -87,11 +87,11 @@
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
-        "buildTarget": "ng-x-rocket:build"
+        "buildTarget": "my-app:build"
       },
       "configurations": {
         "production": {
-          "buildTarget": "ng-x-rocket:build:production"
+          "buildTarget": "my-app:build:production"
         },
         "ci": {}
       }
@@ -99,7 +99,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "ng-x-rocket:build"
+        "buildTarget": "my-app:build"
       }
     },
     "test": {
@@ -120,11 +120,11 @@
       "executor": "@angular-devkit/build-angular:protractor",
       "options": {
         "protractorConfig": "e2e/protractor.conf.js",
-        "devServerTarget": "ng-x-rocket:serve"
+        "devServerTarget": "my-app:serve"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "ng-x-rocket:serve:production"
+          "devServerTarget": "nmy-app:serve:production"
         }
       }
     }

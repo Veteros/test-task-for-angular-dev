@@ -54,6 +54,7 @@ import { AppComponent } from './app/app.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { RouteReuseStrategy } from '@angular/router';
 import { apiPrefixInterceptor, errorHandlerInterceptor, RouteReusableStrategy } from '@my-org/core';
+import { WEATHER_API_KEY } from '@my-org/weather-state';
 
 if (environment.production) {
   enableProdMode();
@@ -74,5 +75,9 @@ bootstrapApplication(AppComponent, {
       TranslateModule.forRoot(),
       NgbModule,
     ),
+    {
+      provide: WEATHER_API_KEY,
+      useValue: '023f072e54622f5b82726a24096fc853'
+    },
   ],
 }).catch((err) => console.error(err));

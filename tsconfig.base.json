@@ -20,7 +20,10 @@
       "@my-org/home-feature": ["libs/home/feature/src/index.ts"],
       "@my-org/shell-feature": ["libs/shell/feature/src/index.ts"],
       "@my-org/shared-util-i18n": ["libs/shared/util-i18n/src/index.ts"],
-      "@my-org/shared-styles": ["libs/shared/assets-styles/src/index.ts"]
+      "@my-org/shared-styles": ["libs/shared/assets-styles/src/index.ts"],
+      "@my-org/weather-state": ["libs/weather/weather-state/src/index.ts"],
+      "@my-org/weather-ui": ["libs/weather/weather-ui/src/index.ts"],
+      "@my-org/block-builder": ["libs/block-builder/src/index.ts"]
     }
   }
 }

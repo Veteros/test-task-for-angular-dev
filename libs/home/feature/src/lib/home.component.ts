@@ -5,12 +5,13 @@ import { QuoteService } from './quote.service';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslateDirective } from '@ngx-translate/core';
 import { LoaderComponent } from '@my-org/shared-ui';
+import { WeatherState } from '@my-org/weather-state';
 
 @Component({
   selector:    'app-home',
   templateUrl: './home.component.html',
   styleUrls:   ['./home.component.scss'],
-  imports:     [NgOptimizedImage, TranslateDirective, LoaderComponent],
+  imports:     [NgOptimizedImage, TranslateDirective, LoaderComponent, WeatherState],
 })
 export class HomeComponent implements OnInit {
   quote: string | undefined;

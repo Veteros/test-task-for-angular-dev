@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <span class="logo-wrapper">
+        <img class="logo" ngSrc="assets/ngx-rocket-logo.png" fill="cover" alt="angular logo" />
+      </span>
+      <span translate>Hello world !</span>
+    </h1>
+    <app-loader [isLoading]="true"></app-loader>
+    <q [hidden]="isLoading">{{ quote }}</q>
+    <lib-weather-state></lib-weather-state>
+  </div>
+</div>

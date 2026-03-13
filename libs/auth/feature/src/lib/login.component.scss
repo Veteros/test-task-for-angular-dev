@@ -1,0 +1,42 @@
+@use "sass:map";
+@import "../../../../shared/assets-styles/src/lib/theme/theme-variables";
+@import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.login-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  h1,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid map.get($theme-colors, "danger");
+}
+
+@include media-breakpoint-down(sm) {
+  .container {
+    width: 100%;
+  }
+}

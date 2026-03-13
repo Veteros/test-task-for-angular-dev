@@ -1,0 +1,22 @@
+<div class="builder-container">
+  @for (block of blocks(); track block.id; let i = $index) {
+    <div class="block-wrapper" style="display: flex; gap: 10px; align-items: center;">
+
+      <div class="reorder-controls" style="display: flex; flex-direction: column;">
+        <button [disabled]="i === 0" (click)="moveBlock(i, -1)">▲</button>
+        <button [disabled]="i === blocks().length - 1" (click)="moveBlock(i, 1)">▼</button>
+      </div>
+
+      <lib-block-item
+        style="flex-grow: 1;"
+        [config]="block"
+        [flatData]="dataSource()"
+        [availableKeys]="keys()"
+        (keyChange)="updateBlockKey($event.id, $event.newKey)"
+        (delete)="removeBlock($event)">
+      </lib-block-item>
+    </div>
+  }
+
+  <button style="margin-top: 20px; padding: 10px;" (click)="addBlock()">+ Add New Block</button>
+</div>

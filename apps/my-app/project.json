@@ -1,0 +1,132 @@
+{
+  "name": "my-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/my-app/src",
+  "prefix": "app",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "options": {
+        "outputPath": {
+          "base": "dist"
+        },
+        "index": "apps/my-app/src/index.html",
+        "polyfills": [
+          "apps/my-app/src/polyfills.ts"
+        ],
+        "tsConfig": "apps/my-app/tsconfig.app.json",
+        "assets": [
+          "apps/my-app/src/favicon.ico",
+          "apps/my-app/src/apple-touch-icon.png",
+          "apps/my-app/src/robots.txt",
+          "apps/my-app/src/manifest.webmanifest",
+          "apps/my-app/src/assets"
+        ],
+        "styles": [
+          "apps/my-app/src/main.scss"
+        ],
+        "scripts": [],
+        "extractLicenses": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true,
+        "browser": "apps/my-app/src/main.ts",
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "."
+          ],
+          "sass": {
+            "silenceDeprecations": [
+              "import"
+            ]
+          }
+        }
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
+            }
+          ],
+          "serviceWorker": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/my-app/src/environments/environment.ts",
+              "with": "apps/my-app/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "ci": {
+          "progress": false
+        }
+      },
+      "defaultConfiguration": "",
+      "outputs": [
+        "{options.outputPath.base}"
+      ]
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "buildTarget": "my-app:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "my-app:build:production"
+        },
+        "ci": {}
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "my-app:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-builders/jest:run",
+      "options": {
+        "watch": true
+      },
+      "configurations": {
+        "ci": {
+          "watch": false,
+          "ci": true,
+          "coverage": true,
+          "silent": true
+        }
+      }
+    },
+    "e2e": {
+      "executor": "@angular-devkit/build-angular:protractor",
+      "options": {
+        "protractorConfig": "e2e/protractor.conf.js",
+        "devServerTarget": "my-app:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nmy-app:serve:production"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div class="weather-dashboard">
+  <h2>Weather Dashboard</h2>
+
+  {{ isLoading | json }}
+  {{ weatherData | json }}
+  @if (isLoading) {
+    <p>Loading weather data...</p>
+  }
+
+  @if (weatherData) {
+    <lib-block-builder [dataSource]="weatherData"></lib-block-builder>
+  } @else {
+    <p>No data. Please initialize the store.</p>
+  }
+</div>
